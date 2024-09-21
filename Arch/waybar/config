@@ -1,72 +1,63 @@
 {
-  "layer": "top",
-    "position": "top",
-    "margin-bottom": 0,
-    "modules-left": [
-      "hyprland/workspaces",
-      ],
-    "modules-center": [
-      "clock",
-      ],
-    "modules-right": [
+	"layer": "top",
+	"position": "top",
+	"margin-bottom": 0,
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"clock",
+	],
+	"modules-right": [
 		"tray",
-      "network",
-      "temperature",
-      "memory",
-      "cpu",
-      "pulseaudio",
-	  "battery",
-      "custom/powermenu",
-    ],
-    "tray": {
-      //"icon-size": 24,
-      "spacing": 10
-    },
-    "hyprland/window": {
-      "format": "{title}",
-      "rewrite": {
-          "(\\d\\. )?(.*) - Chromium": "<span color=\"#4285F4\"></span>  $2 ",
-          "nvim (.*)": "<span color=\"#57A143\"></span>  $1",
-          "nvim": "<span color=\"#57A143\">  Neovim</span> ",
-          "ranger(.*)": "<span color=\"#ffffff\"></span>  $1",
-          //"kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
-          "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
-      },
-      "separate-outputs": false
-    },
-    "hyprland/submap": {
-      "format": "✌️ {}",
-      "max-length": 8,
-      "tooltip": true
-    },
+		"network",
+		"pulseaudio",
+		"hyprland/language",
+		"battery",
+		"custom/powermenu",
+	],
+	"tray": {
+		"spacing": 10
+	},
+	"hyprland/language":{
+		"format": "  {short}"
+	},
+	"hyprland/window": {
+		"format": "{initialTitle}",
+		"rewrite": {
+			"": "Hyprland"
+		},
+		"separate-outputs": false
+	},
 	"battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": {
-            "charging": [
-                "󰢜",
-                "󰂆",
-                "󰂇",
-                "󰂈",
-                "󰢝",
-                "󰂉",
-                "󰢞",
-                "󰂊",
-                "󰂋",
-                "󰂅"
-            ],
-            "default": [
-                "󰁺",
-                "󰁻",
-                "󰁼",
-                "󰁽",
-                "󰁾",
-                "󰁿",
-                "󰂀",
-                "󰂁",
-                "󰂂",
-                "󰁹"
-            ]
-        },
+		"format": "{icon} {capacity}%",
+        	"format-icons": {
+            		"charging": [
+                		"󰢜",
+                		"󰂆",
+                		"󰂇",
+                		"󰂈",
+                		"󰢝",
+                		"󰂉",
+                		"󰢞",
+                		"󰂊",
+                		"󰂋",
+                		"󰂅"
+            		],
+            		"default": [
+                		"󰁺",
+                		"󰁻",
+                		"󰁼",
+                		"󰁽",
+                		"󰁾",
+                		"󰁿",
+                		"󰂀",
+                		"󰂁",
+                		"󰂂",
+                		"󰁹"
+            		]
+        	},
         "format-full": "Charged ",
         "interval": 5,
         "states": {
@@ -94,18 +85,15 @@
       }
     },
     "network": {
-      //"interface": "enp34s0",
-      "tooltip-format-ethernet": "{ifname} ",
-      "interval": 2,
-      //"format": " {bandwidthDownBits}  {bandwidthUpBits}",
-	  "format": "  {signalStrength}%"
+	"tooltip-format-ethernet": "{ifname} ",
+	"interval": 2,
+	"format": "  {signalStrength}%"
     },
     "temperature": {
 	"thermal-zone": 1,
-      "format": "{icon} {temperatureC}°C",
-      //"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      "format-icons": ["", "", ""]
+	"format": "{icon} {temperatureC}°C",
+	"critical-threshold": 80,
+	"format-icons": ["", "", ""]
     },
     "memory": {
       "format": "  {}%",
@@ -121,8 +109,8 @@
       "on-click": "exec wlogout -p layer-shell",
     },
     "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}   {volume}%",
       "format-muted": "",
       "format-icons": {
           "headphone": "",
@@ -137,7 +125,6 @@
       "on-click": "pavucontrol"
     },
     "clock": {
-      //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
       "format": "{:%H:%M}",
       "interval": 60,
       "tooltip": true,

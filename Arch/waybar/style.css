@@ -1,10 +1,22 @@
 * {
   border: none;
-  border-radius: 0;
   min-height: 0;
-  margin: 0;
-  padding: 0;
 }
+
+window > box {
+    background-color: #1e1e2e;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 10px;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
 #waybar {
   background: #1e222a;
   color: #eeeeef;
@@ -33,10 +45,11 @@
 #window,
 #pulseaudio,
 #custom-updates,
+#language,
 #network {
-  padding: 4px 8px;
+  padding: 4px 10px;
   background-color: #303643;
-  border-radius: 30px;
+  border-radius: 10px;
   margin: 6px 4px;
 }
 
@@ -77,6 +90,10 @@
   color: #61afef;
 }
 
+#language {
+  color: #61afef;
+}
+
 #temperature {
   color: #98c379;
 }
@@ -87,12 +104,9 @@
 
 #network {
   color: #c678dd;
-  /*min-width: 200px;*/
 }
 
 #clock {
   color: #fff;
   margin-left: 8px;
-  /* opacity: 0.7; */
-  /* font-size: 18px; */
 }
